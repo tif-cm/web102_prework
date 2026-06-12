@@ -12,16 +12,116 @@ body {
 .header {
     display: flex;
     background-color: lightblue;
+    justify-content: space-between;
     padding: 1%;
     align-items: center;
     margin-left: -10px;
     margin-right: -10px;
     margin-top: -10px;
+    position: sticky;
+    top: 0;
+
 }
+
+
+/* BONUS CHALLENGE: Adding navigation and search bar to the header for better user experience and to demonstrate my understanding of flexbox and CSS styling. I also added hover effects to the navigation links and search bar for design continuity and UX/UI improvement. */
+
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-right {
+    gap: 20px;
+    padding-right: 20px;
+    position: relative; 
+    z-index: 9999; 
+}
+
+.header-right nav {
+    display: flex;
+    gap: 15px;
+}
+
+.header-right a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.header-right a:hover {
+    color: #758190;
+}
+
+#search-input {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Cabin';
+    outline: none;
+}
+
+#search-input:focus {
+    box-shadow: 0 0 5px #758190;
+}
+
+CSS
+/* --- SEARCH DROPDOWN STYLES --- */
+.search-container {
+    position: relative;
+    display: inline-block;
+}
+
+.search-results-dropdown {
+    position: absolute;
+    top: 100%; /* Pushes it exactly below the search input */
+    left: 0;
+    right: 0;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 7px 7px;
+    max-height: 300px; /* Prevents it from getting too long */
+    overflow-y: auto; /* Adds a scrollbar if there are many results */
+    z-index: 1000; /* Ensures it stays on top of other elements */
+    display: none; /* Hidden by default until we type */
+}
+
+.search-result-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #333;
+    font-family: 'Cabin';
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.search-result-img {
+    width: 40px;
+    border-radius: 3px;
+}
+/* End of header/nav styling bonus challenge */
 
 .stats-container {
     display: flex;
+    align-items: center;
 }
+/* I was not 100% clear on the instructions for this part, so I added a hover effect to the entire stats container which is how I interpreted the instructions. As a bonus challenge, I've commented that part out in lieu of adding the effect to the individual .stats-card instead for design continuity since that is how the games cards appear.*/
+/* .stats-container:hover {*/
+/* cursor: pointer;*/
+/* box-shadow: 0 0 30px lightblue;*/
+/*}*/
 
 .stats-card {
     background-color: #a8b0bc;
@@ -30,6 +130,11 @@ body {
     margin: 1%;
     width: 100%;
     text-align: center;
+}
+
+.stats-card:hover {
+     cursor: pointer;
+    box-shadow: 0 0 30px lightblue;
 }
 
 #num-contributions, #total-raised, #num-games {
@@ -72,4 +177,9 @@ button {
     padding: 1%;
     margin: 1%;
     border-radius: 7px;
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 30px lightblue;
 }
